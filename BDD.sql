@@ -30,7 +30,7 @@ CREATE TABLE salaries(
 
 CREATE TABLE administrateurs(
    administrateur_id INT AUTO_INCREMENT,
-   pseudo VARCHAR(50) NOT NULL,
+   login VARCHAR(50) NOT NULL,
    password VARCHAR(50),
    PRIMARY KEY(administrateur_id)
 );
