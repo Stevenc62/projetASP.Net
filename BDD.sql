@@ -34,3 +34,8 @@ CREATE TABLE administrateurs(
    password VARCHAR(50),
    PRIMARY KEY(administrateur_id)
 );
+
+INSERT INTO administrateurs (login, password)
+   VALUES 
+   ('admin', 'test123')
+;
