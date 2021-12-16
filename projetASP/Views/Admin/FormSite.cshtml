@@ -1,0 +1,16 @@
+﻿<form class="container" asp-action="SubmitFormSite" asp-controller="Admin" method="post">
+    @if (ViewBag.Error)
+     {
+        <div class="row m-1 justify-content-center">
+            <div class="alert col-6 alert-danger">
+                @ViewBag.Message
+            </div>
+        </div>
+     }
+    <div class="row m-1 justify-content-center">
+        <input type="text" name="Ville" placeholder="Ville du site" class="form-control col-6 p-1" />
+    </div>
+    <div class="row m-1 justify-content-center">
+        <button type="submit" class="btn btn-secondary col-6 p-1"> Valider</button>
+    </div>
+</form>
