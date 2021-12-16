@@ -20,19 +20,51 @@ namespace projetASP.Controllers
             return View();
         }
 
-        public IActionResult FormSite()
+        public IActionResult FormSite(string message, bool error = false)
         {
-            return View();
+            if (_login.isLogged())
+            {
+                ViewBag.Error = error;
+                ViewBag.Message = message;
+                return View();
+            }
+            else
+            {
+                return RedirectToLogin();
+            }
         }
 
-        public IActionResult FormService()
+        public IActionResult FormService(string message, bool error = false)
         {
-            return View();
+            if (_login.isLogged())
+            {
+                ViewBag.Error = error;
+                ViewBag.Message = message;
+                return View();
+            }
+            else
+            {
+                return RedirectToLogin();
+            }
         }
 
-        public IActionResult FormSalarie()
+        public IActionResult FormSalarie(string message, bool error = false)
         {
-            return View();
+            if (_login.isLogged())
+            {
+                ViewBag.Error = error;
+                ViewBag.Message = message;
+                return View();
+            }
+            else
+            {
+                return RedirectToLogin();
+            }
+        }
+
+        private IActionResult RedirectToLogin()
+        {
+            return RedirectToAction("Index", "Login");
         }
     }
 }

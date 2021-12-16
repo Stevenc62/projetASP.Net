@@ -3,12 +3,12 @@
 }
 
 <form class="container" asp-action="SubmitFormSalarie" asp-controller="Admin" method="post">
-    @if (ViewBag.Error ?? true)
+    @if (ViewBag.Error)
      {
         <div class="row m-1 justify-content-center">
             <div class="alert col-6 alert-danger">
-            @ViewBag.Message
-        </div>
+                @ViewBag.Message
+            </div>
         </div>
      }
     <div class="row m-1 justify-content-center">
