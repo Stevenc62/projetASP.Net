@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using projetASP.Services;
+using projetASP.Models;
 
 namespace projetASP.Controllers
 {
@@ -33,6 +34,19 @@ namespace projetASP.Controllers
             else
             {
                 return RedirectToLogin();
+            }
+        }
+
+        //Envoi du formulaire en BDD
+        public IActionResult SubmitFormSite([Bind("Ville")] Site site )
+        {
+            if (site.Save())
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("FormSite", "Admin", new { error = true, message = "Erreur d'insertion" });
             }
         }
 
