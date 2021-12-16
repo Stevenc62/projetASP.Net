@@ -1,12 +1,16 @@
-﻿<form class="container" asp-action="SubmitFormService" asp-controller="Admin" method="post">
-    @if (ViewBag.Error)
-    {
+﻿@{
+    ViewData["Title"] = "Services";
+}
+
+<form class="container" asp-action="SubmitFormService" asp-controller="Admin" method="post">
+    @if (ViewBag.Error ?? true)
+     {
         <div class="row m-1 justify-content-center">
             <div class="alert col-6 alert-danger">
-                @ViewBag.Message
+            @ViewBag.Message
             </div>
         </div>
-    }
+     }
     <div class="row m-1 justify-content-center">
         <input type="text" name="Service" placeholder="Nom du Service" class="form-control col-6 p-1" />
     </div>

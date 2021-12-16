@@ -19,5 +19,20 @@ namespace projetASP.Controllers
         {
             return View();
         }
+
+        public IActionResult FormSite()
+        {
+            return View();
+        }
+
+        public IActionResult FormService()
+        {
+            return View();
+        }
+
+        public IActionResult FormSalarie()
+        {
+            return View();
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace projetASP.Controllers
         {
             if(_login.LogIn(login, password))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Admin");
             }
             else
             {
