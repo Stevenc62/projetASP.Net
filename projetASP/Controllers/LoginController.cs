@@ -17,6 +17,7 @@ namespace projetASP.Controllers
         {
             _login = login;
         }
+
         // GET: /<controller>/
         public IActionResult Index(string message)
         {
@@ -24,6 +25,7 @@ namespace projetASP.Controllers
             return View();
         }
 
+        //Si connexion réussi redirection vers pannel admin sinon message erreur 
         public IActionResult SubmitLogin(string login, string password)
         {
             if(_login.LogIn(login, password))

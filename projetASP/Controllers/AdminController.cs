@@ -20,6 +20,8 @@ namespace projetASP.Controllers
             return View();
         }
 
+
+        //Securité afin d'acceder au formulaire seulement en etant connecter et donc en etant administrateurs
         public IActionResult FormSite(string message, bool error = false)
         {
             if (_login.isLogged())
@@ -62,6 +64,7 @@ namespace projetASP.Controllers
             }
         }
 
+        //Permet la redirection vers la page de login si on est pas connecté
         private IActionResult RedirectToLogin()
         {
             return RedirectToAction("Index", "Login");
