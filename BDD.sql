@@ -18,17 +18,16 @@ CREATE TABLE sites(
    site_id INT AUTO_INCREMENT,
    ville VARCHAR(50) NOT NULL,
    service_id INT,
-   PRIMARY KEY(site_id),
-   FOREIGN KEY(service_id) REFERENCES services(service_id)
+   PRIMARY KEY(site_id)
 );
 
-INSERT INTO sites (ville, service_id)
+INSERT INTO sites (ville)
    VALUES 
-   ('Lille', 2),
-   ('Paris', 1),
-   ('Toulouse', 2),
-   ('Nice', 2),
-   ('Nantes', 2)
+   ('Lille'),
+   ('Paris'),
+   ('Toulouse'),
+   ('Nice'),
+   ('Nantes')
 ;
 
 CREATE TABLE salaries(
@@ -60,5 +59,5 @@ CREATE TABLE administrateurs(
 
 INSERT INTO administrateurs (login, password)
    VALUES 
-   ('admin', 'test123')
+   ('admin', 'adminaccess1')
 ;
