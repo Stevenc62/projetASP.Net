@@ -2,17 +2,34 @@ CREATE DATABASE projet_asp;
 
 USE projet_asp;
 
-CREATE TABLE sites(
-   site_id INT AUTO_INCREMENT,
-   ville VARCHAR(50) NOT NULL,
-   PRIMARY KEY(site_id)
-);
-
 CREATE TABLE services(
    service_id INT AUTO_INCREMENT,
    service VARCHAR(50) NOT NULL,
    PRIMARY KEY(service_id)
 );
+
+INSERT INTO services (service)
+   VALUES 
+   ('Administratif'),
+   ('Production')
+;
+
+CREATE TABLE sites(
+   site_id INT AUTO_INCREMENT,
+   ville VARCHAR(50) NOT NULL,
+   service_id INT,
+   PRIMARY KEY(site_id),
+   FOREIGN KEY(service_id) REFERENCES services(service_id)
+);
+
+INSERT INTO sites (ville, service_id)
+   VALUES 
+   ('Lille', 2),
+   ('Paris', 1),
+   ('Toulouse', 2),
+   ('Nice', 2),
+   ('Nantes', 2)
+;
 
 CREATE TABLE salaries(
    salarie_id INT AUTO_INCREMENT,
@@ -27,6 +44,12 @@ CREATE TABLE salaries(
    FOREIGN KEY(service_id) REFERENCES services(service_id),
    FOREIGN KEY(site_id) REFERENCES sites(site_id)
 );
+
+INSERT INTO salaries (nom, prenom, fix, portable, mail, service_id, site_id)
+   VALUES 
+   ('Teller', 'Steven', '0383259035', '0639678314', 'teller.steven@gmail.com', 1, 2),
+   ('Campbell', 'Tom', '0384574682', '0745618962', 'tom.campbell@hotmail.fr', 2, 1)
+;
 
 CREATE TABLE administrateurs(
    administrateur_id INT AUTO_INCREMENT,
