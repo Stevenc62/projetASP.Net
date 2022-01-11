@@ -44,7 +44,7 @@ namespace projetASP.Models
             return nbRow == 1;
         }
 
-        public List<Site> GetAllSites()
+        public static List<Site> GetAllSites()
         {
             List<Site> list = new List<Site>();
             request = "SELECT * from sites";
@@ -75,8 +75,21 @@ namespace projetASP.Models
             return nbRow == 1;
         }
 
+        public bool Delete()
+        {
+            request = "DELETE sites set ville=@ville where id=@id";
+            connection = Db.Connection;
+            command = new MySqlCommand(request, connection);
+            command.Parameters.Add(new MySqlParameter("@ville", Ville));
+            connection.Open();
+            int nbRow = command.ExecuteNonQuery();
+            command.Dispose();
+            connection.Close();
+            return nbRow == 1;
+        }
+
     }
 
-    
+
 
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using projetASP.Tools;
 
 namespace projetASP.Controllers
 {
@@ -29,6 +30,11 @@ namespace projetASP.Controllers
         }
 
         public IActionResult Sites()
+        {
+            return View(Site.GetAllSites());
+        }
+
+        public IActionResult SiteEdit()
         {
             return View();
         }
