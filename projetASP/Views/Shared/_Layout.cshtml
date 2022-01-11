@@ -23,21 +23,17 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Sites">Sites</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Site" asp-action="Sites">Sites</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Services">Services</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Service" asp-action="Services">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Salaries">Salariés</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
-                        </li>
-                        <li>
-                            @_login.GetLogin()
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Salarie" asp-action="Salaries">Salariés</a>
                         </li>
                     </ul>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
+                    <a>@_login.GetLogin()</a>
                 </div>
             </div>
         </nav>

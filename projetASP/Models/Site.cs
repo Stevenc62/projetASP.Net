@@ -62,6 +62,25 @@ namespace projetASP.Models
             return list;
         }
 
+        public static Site GetSiteById(int id)
+        {
+            Site site = null;
+            request = "SELECT ville from sites where id=@id";
+            connection = Db.Connection;
+            command = new MySqlCommand(request, connection);
+            command.Parameters.Add(new MySqlParameter("@id", id));
+            connection.Open();
+            reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                site = new Site(id, reader.GetString(1)); ;
+            }
+            reader.Close();
+            command.Dispose();
+            connection.Close();
+            return site;
+        }
+
         public bool Update()
         {
             request = "UPDATE sites set ville=@ville where id=@id";
