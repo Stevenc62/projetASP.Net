@@ -17,7 +17,6 @@ INSERT INTO services (service)
 CREATE TABLE sites(
    site_id INT AUTO_INCREMENT,
    ville VARCHAR(50) NOT NULL,
-   service_id INT,
    PRIMARY KEY(site_id)
 );
 
