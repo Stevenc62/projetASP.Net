@@ -16,9 +16,10 @@ namespace projetASP.Models
         private static MySqlCommand command;
         private static MySqlDataReader reader;
 
+        public int Id { get => id; set => id = value; }
+
         public string Ville { get => ville; set => ville = value; }
 
-        public int Id { get => id; set => id = value; }
 
         public Site()
         {
@@ -70,10 +71,10 @@ namespace projetASP.Models
         public static Site GetSiteById(int id)
         {
             Site site = null;
-            request = "SELECT ville from sites where id=@id";
+            request = "SELECT ville FROM sites where id = @id";
             connection = Db.Connection;
             command = new MySqlCommand(request, connection);
-            command.Parameters.Add(new MySqlParameter("id", id));
+            command.Parameters.Add(new MySqlParameter("@id", id));
             connection.Open();
             reader = command.ExecuteReader();
             if (reader.Read())

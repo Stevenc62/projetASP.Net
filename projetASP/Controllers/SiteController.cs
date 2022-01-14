@@ -27,6 +27,7 @@ namespace projetASP.Controllers
             return View(Site.GetAllSites());
         }
 
+        [Route("edit-site/{id?}")]
         public IActionResult SiteEdit(int id)
         {
             if (_login.isLogged())
