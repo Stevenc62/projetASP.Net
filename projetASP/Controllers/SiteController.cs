@@ -31,14 +31,22 @@ namespace projetASP.Controllers
         {
             if (_login.isLogged())
             {
-                Site site = null;
-                site = Site.GetSiteById((int)id);
-                return View(site);
+                return View("site", Site.GetSiteById(id));
             }
             else
             {
                 return RedirectToLogin();
             }
+        }
+
+        public IActionResult SiteDelete(int id)
+        {
+            Site site = Site.GetSiteById(id);
+            if (site != null)
+            {
+                site.Delete();
+            }
+            return RedirectToAction("Sites", "Site", new { message = "message suppression" });
         }
     }
 }

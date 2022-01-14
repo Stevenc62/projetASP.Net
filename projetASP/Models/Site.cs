@@ -66,13 +66,14 @@ namespace projetASP.Models
             return list;
         }
 
+        
         public static Site GetSiteById(int id)
         {
             Site site = null;
             request = "SELECT ville from sites where id=@id";
             connection = Db.Connection;
             command = new MySqlCommand(request, connection);
-            command.Parameters.Add(new MySqlParameter("@id", id));
+            command.Parameters.Add(new MySqlParameter("id", id));
             connection.Open();
             reader = command.ExecuteReader();
             if (reader.Read())
@@ -80,7 +81,7 @@ namespace projetASP.Models
                 site = new Site()
                 {
                     Id = id,
-                    Ville = reader.GetString(1),
+                    Ville = reader.GetString(1)
                 };
             }
             reader.Close();
