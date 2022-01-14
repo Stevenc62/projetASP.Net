@@ -29,8 +29,8 @@
                 @Html.DisplayFor(modelItem => item.Ville)
             </td>
             <td>
-                @Html.ActionLink("Modifier", "SiteEdit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Supprimer", "SiteDelete", new { /* id=item.PrimaryKey */ })
+                <a asp-controller="Site" asp-action="SiteEdit" asp-route-id="@item.Id"> Modifier</a> |
+                <a asp-controller="Site" asp-action="SiteDelete" asp-route-id="@item.Id"> Supprimer</a> 
             </td>
         </tr>
 }

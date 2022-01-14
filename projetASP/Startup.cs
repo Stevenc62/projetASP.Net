@@ -56,6 +56,10 @@ namespace projetASP
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "site",
+                    pattern: "{controller=Site}/{action=Site}/{id?}");
             });
         }
     }

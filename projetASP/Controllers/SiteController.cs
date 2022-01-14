@@ -32,11 +32,23 @@ namespace projetASP.Controllers
         {
             if (_login.isLogged())
             {
-                return View("site", Site.GetSiteById(id));
+                return View(Site.GetSiteById(id));
             }
             else
             {
                 return RedirectToLogin();
+            }
+        }
+
+        public IActionResult Update(Site site)
+        {
+            if (site.Update())
+            {
+                return RedirectToAction("Sites");
+            }
+            else
+            {
+                return RedirectToAction("SiteEdit", "Site", new { error = true, message = "Erreur d'insertion" });
             }
         }
 

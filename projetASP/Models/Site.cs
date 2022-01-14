@@ -17,7 +17,6 @@ namespace projetASP.Models
         private static MySqlDataReader reader;
 
         public int Id { get => id; set => id = value; }
-
         public string Ville { get => ville; set => ville = value; }
 
 
@@ -71,10 +70,10 @@ namespace projetASP.Models
         public static Site GetSiteById(int id)
         {
             Site site = null;
-            request = "SELECT ville FROM sites where id = @id";
+            request = "SELECT ville FROM sites WHERE site_id = @site_id";
             connection = Db.Connection;
             command = new MySqlCommand(request, connection);
-            command.Parameters.Add(new MySqlParameter("@id", id));
+            command.Parameters.Add(new MySqlParameter("@site_id", id));
             connection.Open();
             reader = command.ExecuteReader();
             if (reader.Read())
@@ -82,7 +81,7 @@ namespace projetASP.Models
                 site = new Site()
                 {
                     Id = id,
-                    Ville = reader.GetString(1)
+                    Ville = reader.GetString(0)
                 };
             }
             reader.Close();
@@ -93,10 +92,11 @@ namespace projetASP.Models
 
         public bool Update()
         {
-            request = "UPDATE sites set ville=@ville where id=@id";
+            request = "UPDATE sites SET ville=@ville, site_id=@site_id WHERE site_id = @site_id";
             connection = Db.Connection;
             command = new MySqlCommand(request, connection);
-            command.Parameters.Add(new MySqlParameter("@ville", Ville));
+            command.Parameters.AddWithValue("@site_id", id);
+            command.Parameters.AddWithValue("@ville", Ville);
             connection.Open();
             int nbRow = command.ExecuteNonQuery();
             command.Dispose();
@@ -106,9 +106,10 @@ namespace projetASP.Models
 
         public bool Delete()
         {
-            request = "DELETE sites set ville=@ville where id=@id";
+            request = "DELETE FROM sites WHERE site_id = @site_id";
             connection = Db.Connection;
             command = new MySqlCommand(request, connection);
+            command.Parameters.Add(new MySqlParameter("@site_id", id));
             command.Parameters.Add(new MySqlParameter("@ville", Ville));
             connection.Open();
             int nbRow = command.ExecuteNonQuery();
