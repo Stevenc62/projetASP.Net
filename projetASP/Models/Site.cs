@@ -18,7 +18,11 @@ namespace projetASP.Models
 
         public string Ville { get => ville; set => ville = value; }
 
-        public int Id { get => id; }
+        public int Id { get => id; set => id = value; }
+
+        public Site()
+        {
+        }
 
         public Site(string v)
         {
@@ -73,7 +77,11 @@ namespace projetASP.Models
             reader = command.ExecuteReader();
             if (reader.Read())
             {
-                site = new Site(id, reader.GetString(1)); ;
+                site = new Site()
+                {
+                    Id = id,
+                    Ville = reader.GetString(1),
+                };
             }
             reader.Close();
             command.Dispose();
