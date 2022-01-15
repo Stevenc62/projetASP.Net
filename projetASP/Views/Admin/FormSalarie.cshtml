@@ -4,13 +4,13 @@
 
 <form class="container" asp-action="SubmitFormSalarie" asp-controller="Admin" method="post">
     @if (ViewBag.Error)
-     {
+    {
         <div class="row m-1 justify-content-center">
             <div class="alert col-6 alert-danger">
                 @ViewBag.Message
             </div>
         </div>
-     }
+    }
     <div class="row m-1 justify-content-center">
         <input type="text" name="Nom" placeholder="Nom du salarié" class="form-control col-6 p-1" />
     </div>
@@ -18,13 +18,19 @@
         <input type="text" name="Prenom" placeholder="Prénom du salarié" class="form-control col-6 p-1" />
     </div>
     <div class="row m-1 justify-content-center">
-        <input type="text" name="Fixe" placeholder="Téléphone fixe du salarié" class="form-control col-6 p-1" />
+        <input type="text" name="Fix" placeholder="Téléphone fixe du salarié" class="form-control col-6 p-1" />
     </div>
     <div class="row m-1 justify-content-center">
         <input type="text" name="Portable" placeholder="Téléphone portable du salarié" class="form-control col-6 p-1" />
     </div>
     <div class="row m-1 justify-content-center">
-        <input type="text" name="Email" placeholder="Mail éléctronique" class="form-control col-6 p-1" />
+        <input type="text" name="Mail" placeholder="Mail éléctronique" class="form-control col-6 p-1" />
+    </div>
+    <div class="row m-1 justify-content-center">
+        <input type="number" name="Service_id" placeholder="Id du service" class="form-control col-6 p-1" />
+    </div>
+    <div class="row m-1 justify-content-center">
+        <input type="number" name="Site_id" placeholder="Id du site" class="form-control col-6 p-1" />
     </div>
     <div class="row m-1 justify-content-center">
         <button type="submit" class="btn btn-secondary col-6 p-1"> Valider</button>

@@ -19,7 +19,6 @@ namespace projetASP.Models
 
             //Faire une compraison dans la base de données.
             //Pour simplifier le developpement, je fais une comparaison avec des données statiques.
-            //Je mettrais un login et mdp plus profesionnel à la fin du projet
             if(l == "admin" && p == "adminaccess1")
             {
                 user = new Utilisateur()

@@ -1,0 +1,68 @@
+﻿@model projetASP.Models.Salarie
+
+@{
+    ViewData["Title"] = "SalarieDelete";
+}
+
+<h1>Suppression d'un employé'</h1>
+
+<h3>Etes vous sur de vouloir supprimer cet employé ?</h3>
+<div>
+    <h4>Salarie</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Prenom)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Prenom)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fix)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fix)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Portable)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Portable)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Service_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Service_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Site_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Site_id)
+        </dd>
+    </dl>
+    
+    <form asp-action="SalarieDelete">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Salaries">Back to List</a>
+    </form>
+</div>

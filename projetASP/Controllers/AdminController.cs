@@ -90,6 +90,18 @@ namespace projetASP.Controllers
             }
         }
 
+        public IActionResult SubmitFormSalarie([Bind("Nom, Prenom, Fix, Portable, Mail, Service_id, Site_id")] Salarie salarie)
+        {
+            if (salarie.Save())
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("FormSalarie", "Admin", new { error = true, message = "Erreur d'insertion" });
+            }
+        }
+
         //Permet la redirection vers la page de login si on est pas connecté
         private IActionResult RedirectToLogin()
         {
