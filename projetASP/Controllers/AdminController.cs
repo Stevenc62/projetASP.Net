@@ -64,6 +64,18 @@ namespace projetASP.Controllers
             }
         }
 
+        public IActionResult SubmitFormService([Bind("Nom_service")] Service service)
+        {
+            if (service.Save())
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("FormService", "Admin", new { error = true, message = "Erreur d'insertion" });
+            }
+        }
+
         public IActionResult FormSalarie(string message, bool error = false)
         {
             if (_login.isLogged())

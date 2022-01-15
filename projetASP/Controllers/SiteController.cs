@@ -59,7 +59,7 @@ namespace projetASP.Controllers
             {
                 site.Delete();
             }
-            return RedirectToAction("Sites", "Site", new { message = "message suppression" });
+            return RedirectToAction("Sites", "Site", new { message = "Erreur Suppression" });
         }
     }
 }

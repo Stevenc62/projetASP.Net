@@ -1,0 +1,32 @@
+﻿@model projetASP.Models.Service
+
+@{
+    ViewData["Title"] = "ServiceDelete";
+}
+
+<h1>SiteDelete</h1>
+
+<h3>Etes vous sur de vouloir supprimer ce site ?</h3>
+<div>
+    <h4>Site</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nom_service)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nom_service)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Services">Retour à la liste</a>
+    </form>
+</div>
