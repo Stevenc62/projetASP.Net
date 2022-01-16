@@ -16,9 +16,18 @@ namespace projetASP.Controllers
             _login = login;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string message, bool error = false)
         {
-            return View();
+            if (_login.isLogged())
+            {
+                ViewBag.Error = error;
+                ViewBag.Message = message;
+                return View();
+            }
+            else
+            {
+                return RedirectToLogin();
+            }
         }
 
 
