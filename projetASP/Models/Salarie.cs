@@ -103,13 +103,13 @@ namespace projetASP.Models
                 salarie = new Salarie()
                 {
                     Id = id,
-                    Nom = reader.GetString(1),
-                    Prenom = reader.GetString(2),
-                    Fix = reader.GetString(3),
-                    Portable = reader.GetString(4),
-                    Mail = reader.GetString(5),
-                    Service_id = reader.GetInt32(6),
-                    Site_id = reader.GetInt32(7)
+                    Nom = reader.GetString(0),
+                    Prenom = reader.GetString(1),
+                    Fix = reader.GetString(2),
+                    Portable = reader.GetString(3),
+                    Mail = reader.GetString(4),
+                    Service_id = reader.GetInt32(5),
+                    Site_id = reader.GetInt32(6)
                 };
             }
             reader.Close();

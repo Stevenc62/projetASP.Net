@@ -107,7 +107,7 @@ namespace projetASP.Controllers
             }
             else
             {
-                return RedirectToAction("FormSalarie", "Admin");
+                return RedirectToAction("Index", "Admin");
             }
         }
 
