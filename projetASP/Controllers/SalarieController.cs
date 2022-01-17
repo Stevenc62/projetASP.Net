@@ -70,5 +70,38 @@ namespace projetASP.Controllers
             }
         }
 
+        public IActionResult SearchbySites(int? site_id)
+        {
+            List<Salarie> list = null;
+            if (site_id != null)
+            {
+                list = Salarie.GetSalarieBySite((int)site_id);
+            }
+            return View(list);
+
+        }
+
+        public IActionResult SearchbyServices(int? service_id)
+        {
+            List<Salarie> list = null;
+            if (service_id != null)
+            {
+                list = Salarie.GetSalarieByService((int)service_id);
+            }
+            return View(list);
+
+        }
+
+        public IActionResult SearchbyNames(string nom)
+        {
+            List<Salarie> list = null;
+            if (nom != null)
+            {
+                list = Salarie.GetSalarieByName((string)nom);
+            }
+            return View(list);
+
+        }
+
     }
 }

@@ -158,5 +158,62 @@ namespace projetASP.Models
             return nbRow == 1;
         }
 
+        public static List<Salarie> GetSalarieBySite(int site_id)
+        {
+            List<Salarie> list = new List<Salarie>();
+            request = "SELECT salarie_id, nom, prenom, fix, portable, mail, service_id, site_id FROM salaries WHERE site_id = @site_id";
+            connection = Db.Connection;
+            command = new MySqlCommand(request, connection);
+            command.Parameters.Add(new MySqlParameter("@site_id", site_id));
+            connection.Open();
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(new Salarie(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetInt32(6), reader.GetInt32(7)));
+            }
+            reader.Close();
+            command.Dispose();
+            connection.Close();
+            return list;
+        }
+
+        public static List<Salarie> GetSalarieByService(int service_id)
+        {
+            List<Salarie> list = new List<Salarie>();
+            request = "SELECT salarie_id, nom, prenom, fix, portable, mail, service_id, site_id FROM salaries WHERE service_id = @service_id";
+            connection = Db.Connection;
+            command = new MySqlCommand(request, connection);
+            command.Parameters.Add(new MySqlParameter("@service_id", service_id));
+            connection.Open();
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(new Salarie(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetInt32(6), reader.GetInt32(7)));
+            }
+            reader.Close();
+            command.Dispose();
+            connection.Close();
+            return list;
+        }
+
+        public static List<Salarie> GetSalarieByName(string nom)
+        {
+            List<Salarie> list = new List<Salarie>();
+            request = "SELECT salarie_id, nom, prenom, fix, portable, mail, service_id, site_id FROM salaries WHERE nom = @nom";
+            connection = Db.Connection;
+            command = new MySqlCommand(request, connection);
+            command.Parameters.Add(new MySqlParameter("@nom", nom));
+            connection.Open();
+            reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(new Salarie(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetInt32(6), reader.GetInt32(7)));
+            }
+            reader.Close();
+            command.Dispose();
+            connection.Close();
+            return list;
+        }
+
     }
 }

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<projetASP.Models.Salarie>
+
+@{
+    ViewData["title"] = "Recherche par Services";
+}
+
+<h1>Salaries</h1>
+
+<div>
+    <a asp-action="Salaries">Retourner à la liste de tout les employées</a>
+</div>
+
+<div class="container">
+    <form asp-action="SearchbyServices" asp-controller="Salarie" class="row m-1 justify-content-center">
+        <input type="text" class="col-5 form-control p-1" name="service_id" placeholder="Recherche par Id de Services" />
+        <button class="col-1 p-1 btn btn-primary" type="submit">Rechercher</button>
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Portable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Site_id)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @if (Model != null)
+    {
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prenom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fix)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Portable)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Service_id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Site_id)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    }
+</table>
+
