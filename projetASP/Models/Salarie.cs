@@ -92,7 +92,7 @@ namespace projetASP.Models
         public static Salarie GetSalarieById(int id)
         {
             Salarie salarie = null;
-            request = "SELECT nom, prenom, fix, portable, mail, service_id, site_id FROM salaries WHERE site_id = @salarie_id";
+            request = "SELECT nom, prenom, fix, portable, mail, service_id, site_id FROM salaries WHERE salarie_id = @salarie_id";
             connection = Db.Connection;
             command = new MySqlCommand(request, connection);
             command.Parameters.Add(new MySqlParameter("@salarie_id", id));
