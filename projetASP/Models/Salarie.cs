@@ -52,6 +52,7 @@ namespace projetASP.Models
             id = i;
         }
 
+        //Fonction permettant l'insertion en BDD
         public bool Save()
         {
             request = "INSERT INTO salaries (nom, prenom, fix, portable, mail, service_id, site_id) values(@nom, @prenom, @fix, @portable, @mail, @service_id, @site_id);";
@@ -71,6 +72,7 @@ namespace projetASP.Models
             return Id > 0;
         }
 
+        //Fonction permettant de selectionner les informations de toute la table d'une BDD
         public static List<Salarie> GetAllSalaries()
         {
             List<Salarie> list = new List<Salarie>();
@@ -89,6 +91,7 @@ namespace projetASP.Models
             return list;
         }
 
+        //Fonction permettant d'obtenir les informations par les ID d'une table
         public static Salarie GetSalarieById(int id)
         {
             Salarie salarie = null;
@@ -118,6 +121,7 @@ namespace projetASP.Models
             return salarie;
         }
 
+        //Fonction permettant l'update d'une ligne dans une table
         public bool Update()
         {
             request = "UPDATE salaries SET salarie_id=@salarie_id, nom=@nom, prenom=@prenom, fix=@fix, portable=@portable, mail=@mail, service_id=@service_id, site_id=@site_id  WHERE salarie_id = @salarie_id";
@@ -138,6 +142,7 @@ namespace projetASP.Models
             return nbRow == 1;
         }
 
+        //Fonction permettant la suppression d'une ligne (enregistrement) dans une table
         public bool Delete()
         {
             request = "DELETE FROM salaries WHERE salarie_id = @salarie_id";
@@ -158,6 +163,7 @@ namespace projetASP.Models
             return nbRow == 1;
         }
 
+        //Fonction permettant d'obtenir les informations par le site_id 
         public static List<Salarie> GetSalarieBySite(int site_id)
         {
             List<Salarie> list = new List<Salarie>();
@@ -177,6 +183,7 @@ namespace projetASP.Models
             return list;
         }
 
+        //Fonction permettant d'obtenir les informations par le service_id 
         public static List<Salarie> GetSalarieByService(int service_id)
         {
             List<Salarie> list = new List<Salarie>();
@@ -196,6 +203,8 @@ namespace projetASP.Models
             return list;
         }
 
+
+        //Fonction permettant d'obtenir les informations par le nom
         public static List<Salarie> GetSalarieByName(string nom)
         {
             List<Salarie> list = new List<Salarie>();
