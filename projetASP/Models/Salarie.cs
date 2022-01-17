@@ -65,11 +65,10 @@ namespace projetASP.Models
             command.Parameters.Add(new MySqlParameter("@service_id", Service_id));
             command.Parameters.Add(new MySqlParameter("@site_id", Site_id));
             connection.Open();
-            int nbRow = command.ExecuteNonQuery();
             id = Convert.ToInt32(command.ExecuteScalar());
             command.Dispose();
             connection.Close();
-            return nbRow == 1;
+            return Id > 0;
         }
 
         public static List<Salarie> GetAllSalaries()

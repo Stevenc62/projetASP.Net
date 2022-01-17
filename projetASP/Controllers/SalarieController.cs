@@ -55,12 +55,19 @@ namespace projetASP.Controllers
         [Route("delete-salarie/{id?}")]
         public IActionResult SalarieDelete(int id)
         {
-            Salarie salarie = Salarie.GetSalarieById(id);
-            if (salarie != null)
+            if (_login.isLogged())
             {
-                salarie.Delete();
+                Salarie salarie = Salarie.GetSalarieById(id);
+                if (salarie != null)
+                {
+                    salarie.Delete();
+                }
+                return RedirectToAction("Salaries", "Salarie", new { message = "Erreur Suppression" });
             }
-            return RedirectToAction("Salaries", "Salarie", new { message = "Erreur Suppression" });
+            else
+            {
+                return RedirectToLogin();
+            }
         }
 
     }

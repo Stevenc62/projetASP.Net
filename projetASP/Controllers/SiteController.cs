@@ -52,14 +52,22 @@ namespace projetASP.Controllers
             }
         }
 
+        [Route("delete-site/{id?}")]
         public IActionResult SiteDelete(int id)
         {
-            Site site = Site.GetSiteById(id);
-            if (site != null)
+            if (_login.isLogged())
             {
-                site.Delete();
+                Site site = Site.GetSiteById(id);
+                if (site != null)
+                {
+                    site.Delete();
+                }
+                return RedirectToAction("Sites", "Site", new { message = "Erreur Suppression" });
             }
-            return RedirectToAction("Sites", "Site", new { message = "Erreur Suppression" });
+            else
+            {
+                return RedirectToLogin();
+            }
         }
     }
 }

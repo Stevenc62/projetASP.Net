@@ -56,12 +56,19 @@ namespace projetASP.Controllers
         [Route("delete-service/{id?}")]
         public IActionResult ServiceDelete(int id)
         {
-            Service service = Service.GetServiceById(id);
-            if (service != null)
+            if (_login.isLogged())
             {
-                service.Delete();
+                Service service = Service.GetServiceById(id);
+                if (service != null)
+                {
+                    service.Delete();
+                }
+                return RedirectToAction("Services", "Service", new { message = "Erreur Suppression" });
             }
-            return RedirectToAction("Services", "Service", new { message = "Erreur Suppression" });
+            else
+            {
+                return RedirectToLogin();
+            }
         }
 
      }

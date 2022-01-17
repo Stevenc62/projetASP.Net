@@ -55,7 +55,7 @@ namespace projetASP.Controllers
             }
             else
             {
-                return RedirectToAction("FormSite", "Admin", new { error = true, message = "Erreur d'insertion" });
+                return RedirectToAction("Index", "Admin");
             }
         }
 
