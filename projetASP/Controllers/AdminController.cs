@@ -81,7 +81,7 @@ namespace projetASP.Controllers
             }
             else
             {
-                return RedirectToAction("FormService", "Admin", new { error = true, message = "Erreur d'insertion" });
+                return RedirectToAction("Index", "Admin");
             }
         }
 
@@ -107,7 +107,7 @@ namespace projetASP.Controllers
             }
             else
             {
-                return RedirectToAction("FormSalarie", "Admin", new { error = true, message = "Erreur d'insertion" });
+                return RedirectToAction("FormSalarie", "Admin");
             }
         }
 
